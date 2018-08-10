@@ -1,19 +1,20 @@
 import Application from '@ember/application';
-import { assert } from '@ember/debug';
 import { get } from '@ember/object';
 import Route from '@ember/routing/route';
 
 export function initialize(application: Application): void {
-  let env = application.resolveRegistration('config:environment');
-  // @ts-ignore
-  let trackingId = get(env, 'google-analytics.trackingId');
+  let config = application.resolveRegistration('config:environment');
 
-  if (! trackingId) {
+  // @ts-ignore
+  let trackingId = get(config, 'googleAnalytics.trackingId');
+
+  // @ts-ignore
+  if (! trackingId || config.environment !== 'production') {
     return;
   }
 
   // @ts-ignore
-  window.ga('create', get(env, 'google-analytics.trackingId'), 'auto');
+  window.ga('create', get(config, 'googleAnalytics.trackingId'), 'auto');
 
   Route.reopen({
     actions: {
@@ -21,7 +22,7 @@ export function initialize(application: Application): void {
         this._super(...args);
 
         // @ts-ignore
-        window.ga('set', 'page', this.router.url);
+        window.ga('set', 'page', this._router.url);
         // @ts-ignore
         window.ga('send', 'pageview');
       },
