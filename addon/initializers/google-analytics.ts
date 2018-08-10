@@ -5,9 +5,12 @@ import Route from '@ember/routing/route';
 
 export function initialize(application: Application): void {
   let env = application.resolveRegistration('config:environment');
-
   // @ts-ignore
-  assert('Missing "google-analytics.trackingId', !! get(env, 'google-analytics.trackingId'));
+  let trackingId = get(env, 'google-analytics.trackingId');
+
+  if (! trackingId) {
+    return;
+  }
 
   // @ts-ignore
   window.ga('create', get(env, 'google-analytics.trackingId'), 'auto');

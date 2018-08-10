@@ -4,8 +4,8 @@
     "allowJs": true,
     "moduleResolution": "node",
     "allowSyntheticDefaultImports": true,
-    "noImplicitAny": true,
-    "noImplicitThis": true,
+    "noImplicitAny": false,
+    "noImplicitThis": false,
     "alwaysStrict": true,
     "strictNullChecks": true,
     "strictPropertyInitialization": true,
@@ -27,16 +27,16 @@
         "tests/dummy/app/*",
         "app/*"
       ],
-      "ember-google-analytics": [
+      "@postedin/ember-google-analytics": [
         "addon"
       ],
-      "ember-google-analytics/*": [
+      "@postedin/ember-google-analytics/*": [
         "addon/*"
       ],
-      "ember-google-analytics/test-support": [
+      "@postedin/ember-google-analytics/test-support": [
         "addon-test-support"
       ],
-      "ember-google-analytics/test-support/*": [
+      "@postedin/ember-google-analytics/test-support/*": [
         "addon-test-support/*"
       ],
       "*": [

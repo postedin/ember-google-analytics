@@ -1,1 +1,1 @@
-export { default, initialize } from 'ember-google-analytics/initializers/google-analytics';
+export { default, initialize } from '@postedin/ember-google-analytics/initializers/google-analytics';

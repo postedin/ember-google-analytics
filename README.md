@@ -7,7 +7,7 @@ Installation
 ------------------------------------------------------------------------------
 
 ```
-ember install ember-google-analytics
+ember install @postedin/ember-google-analytics
 ```
 
 
