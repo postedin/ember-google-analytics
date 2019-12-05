@@ -1,9 +1,6 @@
 {
-  "publishConfig": {
-    "registry": "https://npm.pkg.github.com/"
-  },
   "name": "@postedin/ember-google-analytics",
-  "version": "0.1.4",
+  "version": "0.2.0",
   "description": "The default blueprint for ember-cli addons.",
   "keywords": [
     "ember-addon"
