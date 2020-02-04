@@ -1,15 +1,17 @@
 'use strict';
 
 module.exports = {
-  name: '@postedin/ember-google-analytics',
+  name: require('./package').name,
 
   contentFor(type) {
     if (type === 'body-footer') {
       return `
+        <script async src="https://www.googletagmanager.com/gtag/js"></script>
         <script>
-          window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+          window.dataLayer = window.dataLayer || [];
+          function gtag(){dataLayer.push(arguments);}
+          gtag('js', new Date());
         </script>
-        <script async src='https://www.google-analytics.com/analytics.js'></script>
       `;
     }
   },

@@ -1,15 +1,9 @@
+[![Build Status](https://travis-ci.org/postedin/ember-google-analytics.svg?branch=master)](https://travis-ci.org/postedin/ember-google-analytics)
+
 ember-google-analytics
 ==============================================================================
 
-[Short description of the addon.]
-
-
-Compatibility
-------------------------------------------------------------------------------
-
-* Ember.js v3.4 or above
-* Ember CLI v2.13 or above
-* Node.js v8 or above
+This addon will simply add gtags.js to index.html like a normal embed but configure and trigger it in ember using the configs you provide.
 
 
 Installation
@@ -23,15 +17,40 @@ ember install @postedin/ember-google-analytics
 Usage
 ------------------------------------------------------------------------------
 
-[Longer description of how to use the addon in apps.]
+### Add your tracking code to your `config/environment.js`.
 
+EG:
+```js
+module.exports = function(environment) {
+  let ENV = {
+    ...
+    googleAnalytics: {
+      trackingId: 'UA-xxxxxxx-x',
+    },
+  };
+```
+
+### By default the tracking is only enabled in the production environment. But you can specify which environments to run it on as well.
+
+```js
+module.exports = function(environment) {
+  let ENV = {
+    ...
+    googleAnalytics: {
+      trackingId: 'UA-xxxxxxx-x',
+      trackEnvironments: 'awesome-env',
+      // or
+      trackEnvironments: ['production', 'staging', 'etc'],
+    },
+  };
+```
 
 Contributing
 ------------------------------------------------------------------------------
 
 ### Installation
 
-* `git clone <repository-url>`
+* `git clone https://github.com/postedin/ember-google-analytics`
 * `cd ember-google-analytics`
 * `yarn install`
 
@@ -45,11 +64,6 @@ Contributing
 * `ember test` – Runs the test suite on the current Ember version
 * `ember test --server` – Runs the test suite in "watch mode"
 * `ember try:each` – Runs the test suite against multiple Ember versions
-
-### Running the dummy application
-
-* `ember serve`
-* Visit the dummy application at [http://localhost:4200](http://localhost:4200).
 
 
 License
